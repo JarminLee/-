@@ -1,0 +1,40 @@
+1.CPU 日志文件格式：
+
+时间
+前15分钟平均负载
+平均使用率
+当前温度
+警告等级：normal < 50, note(50-70), waring(70-85), fault(< 85)
+2.内存 使用量和趋势走向
+
+时间
+内存总大小
+当前可用内存
+内存使用百分比
+动态百分比：0.2*now+0.8*last, Mem.sh 上次动态内存百分比
+
+3.硬盘
+4.sysinfo
+
+设置一个长连接作为控制连接，另建立一个短连接随用随建
+
+使用popen,fgets,send传送文件，如果master死了使用save保存到本地
+
+任务：
+M----------->C :长连接，M/C死掉连接断开，三个文件CPU.log(100),Mem.log(101),Disk.log(102),服务端向客户端发请求代码，客户端给回信（如200），
+
+数据连接---短连接，
+
+可能用到的文件
+/proc/loadavg
+
+/sys/class/thermal/thermal_zone0/temp
+
+/proc/stat 
+
+awk
+
+bc
+
+
+
